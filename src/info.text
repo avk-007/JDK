@@ -1,0 +1,375 @@
+ # Java 8 Features Order
+# Interview Order
+
+1. Lambda Expressions
+2. Functional Interfaces
+3. Default Methods
+4. Static Methods
+5. Method Reference (::)
+6. Stream API
+7. Collectors
+8. Optional
+9. Date & Time API (`java.time`)
+
+## 1. Lambda Expressions
+
+## 2. Functional Interfaces
+
+### User Defined Functional Interface
+
+### Predefined Functional Interfaces
+- Predicate<T>
+- Function<T, R>
+- Consumer<T>
+- Supplier<T>
+- UnaryOperator<T>
+- BinaryOperator<T>
+- BiPredicate<T, U>
+- BiFunction<T, U, R>
+- BiConsumer<T, U>
+
+---
+
+## 3. Default Methods
+---
+
+## 4. Static Methods
+---
+## 5. Method Reference (::)
+- Class::staticMethod
+- object::instanceMethod
+- Class::instanceMethod
+- Class::new
+---
+## 6. Stream API
+### Basics
+- Collection vs Stream
+- Internal vs External Iteration
+- Lazy Evaluation
+- Intermediate vs Terminal Operations
+- Sequential Stream
+- Parallel Stream
+---
+# Stream Creation Methods
+- Stream.of()
+- Stream.builder()
+- Stream.iterate()
+- Stream.generate()
+- Arrays.stream()
+- Collection.stream()
+- Collection.parallelStream()
+---
+# Intermediate Operations
+- filter()
+- map()
+- flatMap()
+- distinct()
+- sorted()
+- peek()
+- limit()
+- skip()
+- takeWhile()
+- dropWhile()
+- sequential()
+- parallel()
+- unordered()
+---
+# Terminal Operations
+- forEach()
+- forEachOrdered()
+- collect()
+- toArray()
+- reduce()
+- count()
+- min()
+- max()
+- findFirst()
+- findAny()
+- anyMatch()
+- allMatch()
+- noneMatch()
+- iterator()
+- spliterator()
+---
+# Collectors Methods
+- Collectors.toList()
+- Collectors.toSet()
+- Collectors.toMap()
+- Collectors.joining()
+- Collectors.groupingBy()
+- Collectors.partitioningBy()
+- Collectors.counting()
+- Collectors.summingInt()
+- Collectors.averagingInt()
+- Collectors.mapping()
+- Collectors.collectingAndThen()
+---
+# Optional Class
+- Optional.of()
+- Optional.ofNullable()
+- Optional.empty()
+- get()
+- isPresent()
+- ifPresent()
+- orElse()
+- orElseGet()
+- orElseThrow()
+- map()
+- flatMap()
+- filter()
+- isEmpty()
+---
+# Frequently Used Utility Methods
+- Comparator.comparing()
+- Comparator.reverseOrder()
+- Comparator.naturalOrder()
+- Objects.equals()
+- Objects.nonNull()
+- Objects.isNull()
+---
+
+session 1 to 4::
+
+jdk beta--1995
+jdk 1.0-legacy
+
+--
+jdk is the most popular because of functional programming and
+                                   functional interfaces.
+
+jdk 26
+
+jdk to enabled parellel programming or parallel processing
+
+
+Day2:session 3
+
+LE doesnt having name then how we call Le,and who will call LE
+Answer---> FunctionInterface (FIT)
+
+it is used to call/invoke the LE
+1.A FI contains Only one abstract method ,,i.e a interface which contains only one mehods
+2.will have single abstract method--SAM
+3.A FI can have default methods and static mehtods..
+
+session2-3#::FUnctional Interaface
+----
+RUnnable ---run abstract method
+Callable--call();
+Comparable--compareTo();
+
+LE==removes the implementattion classes
+reduce no if classes ad no of lines of source code
+
+session 5::
+1.contains many defaults,,one abstract and many static methods
+2.it is call or invoke the LE
+  d.m1();
+
+Q--why FI should comtains only one abstract method??
+Answer-->LE can only  provide the  implementation for one one method
+,that's why FI will have only ine abstract method.
+
+Q.what is the advantages of FI annotation?
+answer ()->
+
+//Default methods useCases??
+Q.Default methods methods introduced in jdk8??
+answer--> default void m(){}
+
+important points::
+//default methods are concreate methods
+//lE are used to replacethe implemementation classes
+//deafault methods  are used to replacethe implemementation classes
+
+default methods is used to avoid implementation classes
+
+//ex--default methods wrt to multiple inhertiace
+
+
+//////abstract class vs interface//////
+-FUnctional Interface with default methods !=Abstract class
+1--Abstract class cant refer LE where as Functional Interface
+with default methods can refer Lambda Expression
+
+2--Inside Abstract class we can ovverride object class methods but cant
+do it in functional interface
+
+3--inside Abstract class we can declare constructors but
+cant declare constrcutirs inside interface
+
+4--Abstract class can talk about sttate of the object
+but interface never talks about state of an object
+
+5--in abstract class we can declare instance and static blocks
+but insisde interface we cant declare instance and static blocks
+
+6--
+inside abstract class we can declare instance variable which are required for
+child classes
+inside interface every variable always public ,static,final
+and we cant declare instance variables
+=-----------------------------------------------+
+
+//STATIC  methods inside interface
+Functional interface =Sam +0 or more static and deafults methods
+
+1.from jdk 1.8 version we can declare static methods inside interface
+2.static methods are used to define general utility methods
+3.static methods will not inherit into impl classes ,so if we want to call staticMethods we need to call direcly from classname
+4.overriding concepts are not applicable of interface static methods .
+5.we can write main method inside interface because it suppports static methods
+
+Utility  Methods--
+the code which used in many places is called Utility methods
+
+UseCAse--
+During project development we may required logic ,
+so that logic would be kept inside of utility class.
+
+//utility class -->we can use it using className.methodName();
+
+public class CardServiceUtil{
+}
+public class EmailSsrvice{
+//email sender
+}
+
+13:34 mins in session 6::
+
+//using static methods we can reduce no of classes in project
+
+@FunctionalInterface
+public class Demo{
+public void m1();
+default void m2(){
+S.o.p("m2() method");
+}
+
+//write business logic to get last five digit cardnum from given input
+public static String lastFiveDigitCardNum(String cardnum){
+                                                          }
+//input is DD-MM-YYYY then ouput would be DD/MM/YYYY
+public static String dateFormate(String formate, String date){
+                                                              }
+using static methods inside interface we can reduce no of classes in project;
+
+=-----------------------------------------------+=-----------------------------------------------+
+session7::Lambda Expression for collection
+          Basic Knowledge on collections ::List,Set,Map,HashSet,TreeSet,TreeMap
+          Comparator --to perform sort the elements
+=-----------------------------------------------+=-----------------------------------------------+
+-->Lambda Expression is used to write readable,maintainable and concise code
+i.e it will focus on less no of lines of code
+-->Functional interface is used to call lambda expression
+
+Collections--group of individual objects  stored in single entity
+::List,Set,Map
+
+List::insertion order is preserved.
+      duplicate is allowed.
+
+      ArrayList -LinkedList - vector
+
+Set::insertion order is not preserved.
+      duplicate is not allowed allowed.
+
+      HashSet--TreeSet
+
+ Map::group of object in key value pair
+     Hashmap--TreeMap
+
+=-------------------------------------------------------+-----------------------------------------------=
+ SESSION 8 with LE
+--Collection objects are List,Set,Map
+--Using LE we can reduce no if lines of code and avoid implementation  classes
+--Collection will hold the-->
+  A-wrapper classes objects like String,Integer,etc.
+  B-User Defined objects like Employee,Products,Order etc.
+
+=-------------------------------------------------------+-----------------------------------------------=
+
+Session 9::
+1.LE is used to reduce the no of lines od code and
+avid implemetation class
+2..FInterface is used to call LambdaExpression
+3.FUnctional Interface are 2 types
+  a-user defined Interface --developer write using @functionalInterface
+  b-Predfined FUncational Interface
+   1.predicate
+   2.FUnction
+   3.consumer
+   4.supplier
+   5.BiPredicate
+   6.BiFUnction
+   7.BiConsumer
+   8.UnaryOperator
+   9.BinaryOperator
+
+1.predicate
+A.it is a boolean Value function
+predicate is used to perform some condition check
+i.e--wherever conditional checks are there use predicate instead of write more code
+     predicate will replace the if statements
+
+ interface Predicate<T>{
+ boolean test(T t)
+ }
+
+ public boolean test(String s){             (s)->{
+ if(string.length>6){                             if(string.length>6){
+                                                  return true
+ return true;                                      }else
+ }else                                                  rerurn false;}
+ return false;
+ }
+
+
+trick::Predicate with LE
+
+Predicate<String s> p= s -> s.length>6;
+p.test("sreenutech");
+
+if more condition checks are there use Predicate
+
+if(object!= null && Object.getName().equals("sreenutech"){
+//b.logiv
+}
+
+//this above is called as predicate joining
+-->if we want to perform multiple conditions then we should use predicate joining like
+a.negate()  b.and()  c.or()
+
+
+int [] x={10,20,30,40,50,60,70,80}
+
+filter the date with >10 and even nos
+
+Predicate<Integer> p1=i->i>10;
+Predicate<Integer> p1=i->i%2==0;
+
+//trick use Predicate
+Predicate<Integer> p3 =p1.and(p2);
+for(int x1 : x2){
+if(p3.test(x1){
+sout(x1)
+}}
+
+predicate is a functionalInterface which will have 1 abstracrt,o or more static and dedaults methods
+
+Predicate--
+test()
+or()
+and()
+negate()
+isequal()--static method
+
+note--use predicate to filter the data
+i.e ---to filter the data we should apply some businnes logic
+       use predicate to implement business logic
+       i.e try to avoid if stattements from code
+
+
+//predicate  -with one arguments
+//predicate  -with one or more arguments is BiPredicate
+//Predicate  -IntPredictae,LongPredicate,DOublePredicate
