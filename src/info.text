@@ -370,6 +370,6 @@ i.e ---to filter the data we should apply some businnes logic
        i.e try to avoid if stattements from code
 
 
-//predicate  -with one arguments
-//predicate  -with one or more arguments is BiPredicate
+//predicate --with one arguments
+//predicate --with one or more arguments is BiPredicate
 //Predicate  -IntPredictae,LongPredicate,DOublePredicate
