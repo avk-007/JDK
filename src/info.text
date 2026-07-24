@@ -297,7 +297,7 @@ avid implemetation class
   a-user defined Interface --developer write using @functionalInterface
   b-Predfined FUncational Interface
    1.predicate
-   2.FUnction
+   2.Function
    3.consumer
    4.supplier
    5.BiPredicate
@@ -373,3 +373,103 @@ i.e ---to filter the data we should apply some businnes logic
 //predicate --with one arguments
 //predicate --with one or more arguments is BiPredicate
 //Predicate  -IntPredictae,LongPredicate,DOublePredicate
+
+-----------------------------------------------------
+Session10::
+FUnctional Interface are used to call the LE--
+1-predicate is used to implement busniness logic or conditonal checks
+2-we can replace with predicate wherever conditional checks are there
+
+public interface Predicate<T>{
+public boolean test(T t);
+}
+methods:
+and() method input is Predicate<T>---?SAM (abstractemthod)
+or()//default method
+negate() --reverse //default method
+
+
+isequal() //static methods
+ //isEquals static method
+Predicate<String> pname=Predicate.isEqual("abhishek");
+            System.out.println(pname.test("abhishek")); //true
+            System.out.println(pname.test("abhis")); //false
+
+BiPredicate
+ --->>
+ here input args are only one sometimes input arguments may be more than 2 or 2
+ then we can use BiPredicate
+ BiPredicate:--:
+ it will take 2 input args
+ it is also to do the condtional checks
+
+ systax::
+ interface Bipredicate{
+       public boolean test(T t ,U u)
+ }
+note::
+//there is no equals method avaialable in BiPredicate
+//always true or false will come
+
+
+""autoboxing and auto-unboxing""
+autoboxing   -->primitive(int i=0) to wrapper Object(Integer i=0) conversion is autoboxing
+auto-unboxing-->wrapper Object(Integer i=0) to primitive(int i=0) conversion is auto-unboxing
+
+
+//PRimitive Predicate::
+while peroforming conditional checks the developer forcing to do the autoboxing and unboxing
+which will cause the performace issue
+to overcome this problems we should use Primitive Predicate interface
+
+EX--IntPredicate,LongPredicate,DoublePredicate
+
+
+
+there are 3 types of predicate Interface:
+1.single arg --Predicate<T>,, isequals is there only
+2.two arg --BiPredicate<T,U>,, isequals is not there
+3.primitive predicate--IntPredicate,LongPredicate,DoublePredicate,,test,and or is there only isequals is not there
+
+
+=-----------------------------------------------+=-----------------------------------------------+
+Predefined FUnctional Inerface --Function:::
+1,Function is an Functional interface
+public interface Function<T, R> {
+
+    /**
+     * Applies this function to the given argument.
+     *
+     * @param t the function argument
+     * @return the function result
+     */
+    R apply(T t);
+
+ 2-it is exactly  same as Predicate but function returns any value but
+ predicate always return boolean value
+ note--@return the function result
+
+ syntax::
+
+interface Function<T, R> {
+     /**
+      * Applies this function to the given argument.
+      *
+      * @param t the function argument
+      * @return the function result
+      */
+ R apply(T t);
+ }
+
+ ex;;
+ Function<String,Integer> f=s->s.length();
+ f.apply("sreenu"); //op
+
+
+ Q.When we should go for Predicate and function??
+ ans--Predicate-->If we want to filter the data use Predicate
+ if we want to filter the data i.e out of "n" elements the result maybe n or n-1 or n-2
+ ex---list-10 elements ,after filter apply then 10 or 5 or 3 element.
+function::
+ if  we dont filter the data but the logic should be apply for all the elements
+ if input "n" elements--apply some logic --output 'n' elements with Resultant output.
