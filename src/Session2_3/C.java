@@ -1,4 +1,4 @@
-package Session2;
+package Session2_3;
 @FunctionalInterface
 interface Abhi{
     public void m(int a, int b, int c);
