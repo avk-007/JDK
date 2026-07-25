@@ -517,4 +517,16 @@ ans--yes,depends upon required we would use both
 
  "FUNCTION CHAINING" ::
  ----------------------
+1.combined 2 or more functions in a single function is called Function chaining..
 
+2.THERE are 2 methods to perform function chaining
+a.compose()
+b.andThen()
+3.these 2 methods are default methods and input and output both is function
+4.examples::
+andThen()
+  f1.andThen(f2); //first f1 will be applied followed by f2 will be applied
+compose()
+ f1.compose(f2); f2 will be applied followed by f1.
+
+5-Functional interface will have 1 abstarct method,2 default method and 1 static method

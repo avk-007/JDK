@@ -40,11 +40,10 @@ public class PredciateFunctionDemoo {
             System.out.println(p.test(e));
         } //op true false because of test method which return boolean
 */
-//add extra salary 8000
+    //add extra salary +8000
         Function<Employee,Employee> f=e->{e.salary=e.getSalary()+5000;
                                                     return e;
                                                    };
-
         List<Employee> emplist2= new ArrayList<>();
         for (Employee e:emplist){
             if (p.test(e)){
