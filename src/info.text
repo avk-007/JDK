@@ -552,31 +552,78 @@ ex:public interface BIFunction<T,U<R>{
 a.while performing business logic there would be so many  autoboxing and unboxing opearations
 would happen due to this application performance will impact.
 
-Primitive FUnction interface classified into 4 types::
+Primitive Functional Interfaces (Java 17)
+=========================================
 
-1.InputPrimitives::
-    1.IntFUnction<R> o/p--> R(int i)
-    2.LongFunction<R>       R(long  l)
-    3.DOuble Function <R>   R(double  d)
+There are 4 categories of primitive functional interfaces.
 
-2.OutputPrimitives::
-    1.IntFUnction<T>  op--> int apply(T t)
-    2.LongFunction<T>       long apply(T t)
-    3.DOuble Function<T>    double apply(T t)
+----------------------------------------------------------
+1. Primitive Input Functional Interfaces
+----------------------------------------------------------
+These interfaces take a primitive as input and return a generic type.
 
-3.Both Input and output is primitive
-  1.IntToLongFUnction<T>  op--> long apply(int i)
-  2.IntToDoubleFUnction<T>      double apply(int i)
-  3. LongToIntFUnction<T>       int apply(long l)
-  4.LongToDoubleFuction<T>      double apply (long l)
-  5.doubleToIntFUnction<T>      int apply(double d)
-  6.doubletoLongFunction<T>     long apply (double  d)
+1. IntFunction<R>
+   R apply(int value)
 
-4.BiFUnction(Bi means 2) output Arguments
-i.e output as a primitives int byte etc..
-   1.ToIntBiFUnction<T,U>     int apply (T t ,U u)
-   2.ToLongBiFUnction<T,U>    long apply (T t ,U u)
-   3.ToDOubleFUnction<T,U>    double apply(T t,U u)
+2. LongFunction<R>
+   R apply(long value)
 
+3. DoubleFunction<R>
+   R apply(double value)
 
+----------------------------------------------------------
+2. Primitive Output Functional Interfaces
+----------------------------------------------------------
+These interfaces take a generic type as input and return a primitive.
 
+1. ToIntFunction<T>
+   int applyAsInt(T value)
+
+2. ToLongFunction<T>
+   long applyAsLong(T value)
+
+3. ToDoubleFunction<T>
+   double applyAsDouble(T value)
+
+----------------------------------------------------------
+3. Both Input and Output are Primitive
+----------------------------------------------------------
+These interfaces take one primitive input and return another primitive.
+
+Input: int
+
+1. IntToLongFunction
+   long applyAsLong(int value)
+
+2. IntToDoubleFunction
+   double applyAsDouble(int value)
+
+Input: long
+
+3. LongToIntFunction
+   int applyAsInt(long value)
+
+4. LongToDoubleFunction
+   double applyAsDouble(long value)
+
+Input: double
+
+5. DoubleToIntFunction
+   int applyAsInt(double value)
+
+6. DoubleToLongFunction
+   long applyAsLong(double value)
+
+----------------------------------------------------------
+4. Primitive Output BiFunction Interfaces
+----------------------------------------------------------
+These interfaces take two generic inputs and return a primitive.
+
+1. ToIntBiFunction<T, U>
+   int applyAsInt(T t, U u)
+
+2. ToLongBiFunction<T, U>
+   long applyAsLong(T t, U u)
+
+3. ToDoubleBiFunction<T, U>
+   double applyAsDouble(T t, U u)
