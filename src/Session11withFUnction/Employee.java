@@ -8,7 +8,4 @@ public class Employee {
     private String name;
     private String empAddress;
     public Integer salary;
-
-
-
 }

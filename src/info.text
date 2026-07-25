@@ -373,9 +373,9 @@ i.e ---to filter the data we should apply some businnes logic
 //predicate --with one arguments
 //predicate --with one or more arguments is BiPredicate
 //Predicate  -IntPredictae,LongPredicate,DOublePredicate
-
------------------------------------------------------
+=-----------------------------------------------+=-----------------------------------------------+
 Session10::
+=-----------------------------------------------+=-----------------------------------------------+
 FUnctional Interface are used to call the LE--
 1-predicate is used to implement busniness logic or conditonal checks
 2-we can replace with predicate wherever conditional checks are there
@@ -474,12 +474,10 @@ function::
  if  we dont filter the data but the logic should be apply for all the elements
  if input "n" elements--apply some logic --output 'n' elements with Resultant output.
 
-
- ------------------------------------------------------------------------------------------
+=-----------------------------------------------+=-----------------------------------------------+
  session11: function
  predefined functional interface--function
- ------------------------------------------------------------------------------------------
- -->
+=-----------------------------------------------+=-----------------------------------------------+
 public interface Function<T,R>{
 R apply(T t)
 //where t is input
@@ -530,3 +528,55 @@ compose()
  f1.compose(f2); f2 will be applied followed by f1.
 
 5-Functional interface will have 1 abstarct method,2 default method and 1 static method
+
+
+=-----------------------------------------------+=-----------------------------------------------+
+Session::12
+=-----------------------------------------------+=-----------------------------------------------+
+Predefined Functional interface -Function::
+
+function is of 3 types
+1.single argument function
+A function will have only one i/p arg is called single argument Function
+public interface Function<T,R>{
+R apply(T);
+}
+
+2.2 argumnets function
+A function that will have 2 input args is called BiFunction or 2 arg function.
+ex:public interface BIFunction<T,U<R>{
+   R apply(T t,U u);
+                                    }
+
+3.Primitive Type Function==byte, short, int, long, float, double, char, and boolean.
+a.while performing business logic there would be so many  autoboxing and unboxing opearations
+would happen due to this application performance will impact.
+
+Primitive FUnction interface classified into 4 types::
+
+1.InputPrimitives::
+    1.IntFUnction<R> o/p--> R(int i)
+    2.LongFunction<R>       R(long  l)
+    3.DOuble Function <R>   R(double  d)
+
+2.OutputPrimitives::
+    1.IntFUnction<T>  op--> int apply(T t)
+    2.LongFunction<T>       long apply(T t)
+    3.DOuble Function<T>    double apply(T t)
+
+3.Both Input and output is primitive
+  1.IntToLongFUnction<T>  op--> long apply(int i)
+  2.IntToDoubleFUnction<T>      double apply(int i)
+  3. LongToIntFUnction<T>       int apply(long l)
+  4.LongToDoubleFuction<T>      double apply (long l)
+  5.doubleToIntFUnction<T>      int apply(double d)
+  6.doubletoLongFunction<T>     long apply (double  d)
+
+4.BiFUnction(Bi means 2) output Arguments
+i.e output as a primitives int byte etc..
+   1.ToIntBiFUnction<T,U>     int apply (T t ,U u)
+   2.ToLongBiFUnction<T,U>    long apply (T t ,U u)
+   3.ToDOubleFUnction<T,U>    double apply(T t,U u)
+
+
+
