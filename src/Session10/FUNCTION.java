@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.function.Function;
 
 /*ex;;
-Function<String,Integer> f=s->s.length();
+FunctionDemoo<String,Integer> f=s->s.length();
  f.apply("sreenu"); //op
 
 
@@ -27,7 +27,12 @@ public class FUNCTION {
      for (String fruit : fruites){
          System.out.println(fruitss.apply(fruit));
      }
+     //LE
       Function<String,String> uparCaase= s-> s.toUpperCase();
-        System.out.println(uparCaase.apply(Arrays.toString(fruites) ));
+        System.out.println("with Lambda Expression"+uparCaase.apply(Arrays.toString(fruites) ));
+        //to method Refernce
+      Function<String,String> uparCaase1= String::toUpperCase;
+        System.out.println("with method Reference"+uparCaase1.apply(Arrays.toString(fruites) ));
+
     }
 }

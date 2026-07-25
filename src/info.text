@@ -473,3 +473,48 @@ interface Function<T, R> {
 function::
  if  we dont filter the data but the logic should be apply for all the elements
  if input "n" elements--apply some logic --output 'n' elements with Resultant output.
+
+
+ ------------------------------------------------------------------------------------------
+ session11: function
+ predefined functional interface--function
+ ------------------------------------------------------------------------------------------
+ -->
+public interface Function<T,R>{
+R apply(T t)
+//where t is input
+//R is return any value
+}
+
+
+public interface Predicate<T>{
+boolean test(T t)
+}
+
+
+Predicate vs FUnction::
+1.a.if we want filter the data bases on condtion then choose Predicate.
+  b.if we want to apply some details to all then choose Function
+2.a.if we use Predicate on n elements then result would be either n or <n elements
+     while applying the condition data might be filtered
+  b.if we use function on "n" element then result would be n elements
+    here we are not applying any condition,applling some changes on all the n elements.
+
+3.  Predicate have only one abstract method i.e apply()
+   function have
+
+Ques..can we use both   Predicate and FUnction??
+ans--yes,depends upon required we would use both
+     first apply Predicate and then apply function
+       List<Employee> emplist2= new ArrayList<>();
+             for (Employee e:emplist){
+                 if (p.test(e)){
+                    f.apply(e);
+                    emplist2.add(e);
+                 }
+             }
+        2.or you can first use function and use Predicate
+
+ "FUNCTION CHAINING" ::
+ ----------------------
+
