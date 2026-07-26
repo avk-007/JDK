@@ -684,4 +684,50 @@ andThen() is a deafault method and it is used to perform group of all consumer o
 
 syntax:
 c.andThen(c2).andThen(c3).accept()
+
+Example::
+   Consumer<Employee> chaining=c1.andThen(c2).andThen(c3).andThen(c4);
+        chaining.accept(emp);
  -----------
+ ::BiCONSUMER::
+ if the input is two argumets and return nothing itis called biConsumer
+ ex:->
+      List<Employee> empList= EmployeeUtil.getEmployeeList();
+         BiConsumer<Employee, Double> c=//lE
+                 (e,increment)-> System.out.println(e.getSalary()+increment);
+         for (Employee e:empList) {
+            c.accept(e,7000.0);
+         }
+  -----------  ---------------------------  ---------------------------
+  ConsumerPrimitives::
+  IntCOnsumer etc
+        //No type cast is required
+        IntConsumer c=i-> System.out.println(i*i);
+        c.accept(50);
+
+=-----------------------------------------------+=-----------------------------------------------+
+   Session 16:: Supplier
+  1. it is a one of predefined functional interface
+  2. if we dont need to provide any input but get something
+    i,e get something without passing input
+
+   3.syntax::
+    public interface Supplier<R>{
+    R get(); //abstract method
+    }
+  4.consumer and supplier are counter parts
+  5.Supplier Interface doesnt have any default and sttaic methods
+  6.Supplier interface doesnt have any chaining concept
+  7.supplier interface doesnt have two arguments because it will not  expect any input
+  8.supplier interface are primitive Supplier interface
+
+Supplier Primitives
+--if we use object to genearte Otp then use normal supplier
+--if we will use primitive to generate opt then use primitive
+
+there 4 types of Supplier primitives
+1.IntSupplier -- getAsInt()
+2.DoubleSupplier --getAsDouble()
+3.LongSupplier --getAsLong()
+4.BooleanSupplier --getAsBoolean()
+=-----------------------------------------------+=-----------------------------------------------+
