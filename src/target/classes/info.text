@@ -652,9 +652,9 @@ i.e these are called void methods
 
  2-two argument consumer--BiConsumer
   a.if the input has 2 argument  then it is called BiConsumer
-  public interface Consumer<T,U>{
-   abstract void accept(T t,U u);
-  default BiConsumer andThen(BiConsumer c,)
+  public interface Consumer<T,R>{
+   abstract void accept(T t);
+  default BiConsumer andThen(BiConsumer c)
   //default methods as well there is andThen()
   }
 
@@ -676,12 +676,3 @@ c.primitive COnsumer Intefaces are
  4.ObjectIntConsumer<T> --public void accept (T t,int i);
  5.ObjectLongConsumer<T> --public void accept (T t,logn l);
  6.ObjectDoubleConsumer<T> --public void accept (T t,double  d);
-
- ---
- COnsumer chaining::
-combined 2 or more consumers into single consumer is called cconsumer chaining
-andThen() is a deafault method and it is used to perform group of all consumer object
-
-syntax:
-c.andThen(c2).andThen(c3).accept()
- -----------

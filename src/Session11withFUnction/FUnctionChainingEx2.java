@@ -1,7 +1,5 @@
 package Session11withFUnction;
 
-import Session10.FUNCTION;
-
 import java.util.function.Function;
 
 public class FUnctionChainingEx2 {
