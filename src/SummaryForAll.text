@@ -1,0 +1,29 @@
+Function interface::
+how to write userdefined functional interface
+how to use predefined functional interface
+a.predicate
+b.BiPredicate
+c.primitive Predicate
+
+a.Function
+b.BiFunction
+c.Primitive Function intefaces
+
+a.Consumer
+b.BiConsumer
+c.primitive Consumer interfaces
+
+a.Supplier
+b.primitive Supplier interfaces
+
+a.unaryOperator
+b.primitive unary Operator interface
+
+a.binary Operator
+b.primitive binaryOperator interfaces
+
+Method Reference  (::) Operator
+functional interface is also used to call method references
+
+Stream API
+--------------------

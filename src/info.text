@@ -731,3 +731,131 @@ there 4 types of Supplier primitives
 3.LongSupplier --getAsLong()
 4.BooleanSupplier --getAsBoolean()
 =-----------------------------------------------+=-----------------------------------------------+
+Session 17--Unary and Binary Operator ::
+Function<T,R> {
+//1 abstract method
+R apply(T t);
+}
+
+interface BiFunction<T,U,R>{
+R apply(T t ,U u)
+}
+
+interface BiFUnction <T,T,T>{
+R apply (T t,U u)
+}
+
+
+unary operator::
+1.id the input and output will be same type then you should use unary operator
+2.unaryOperator is the child interface of FUnction Interface
+
+//with 1 arg
+Public interface UnaryOperator<T>{
+public T  appply(T t)
+}
+
+Ex:with function and then UnaryOperator concept
+Function <Interger,Integer> f=i->i*i;
+sout(f.apply(10));
+
+//with unary operator which will avoid unnecessary
+UnaryOperator<Integer> f1=i->i*i;
+sout(f1.apply(6));
+
+3.unaryOpearator always acts as several autoboxing
+4.if there are several autoboxing and unboxing are there prefered primitive unary operator operator
+  a.
+  interface IntUnaryOperator{
+  public T applyAsInt(int i)
+  }
+
+    b.
+    interface LongUnaryOperator{
+    public T applyAsLong(long l)
+    }
+
+     c.
+      interface DoubleUnaryOperator{
+      public T applyAsDouble(double d)
+      }
+
+ note::  UnaryOperator<T> extends Function
+ unary operator that always return its input arg
+  -----------------
+   Binary Operator::
+   1.if the function wil have 2 input arguments then it would be BiFUnction
+   2.if the Function will have 3 argument (2 input and 1 output)
+    if al the three arguments will be same type
+    then we should go for Binary Operator.
+
+   3.Binary operator is the child interaface of FUnction interface
+ ex:
+   public interface BinaryOperator{
+   public T apply (T t1,T t2)
+   }
+
+  3.b-
+  Represents an operation upon two operands of the same type, producing a result of the same type as the operands. This is a specialization of BiFunction for the case
+  where the operands and the result are all of the same type.
+  ex- d,d =d(double)
+
+BiFunction<String s1,String s2> f=(s1,s2)->s1.concat(s2);
+BinaryOperator<String> f1=(s1,s2)->s1.concat(s2);
+
+
+4.Use primitive BinaryOperator to improve the application performance
+by reducing no of autoboxing and unboxing operators
+
+there are 3 types
+1.IntBinaryOperator
+2.LongBinaryOperator
+3.DoubleBinaryOperator
+
+-----------------++-----------------++-----------------++-----------------
+Session 17::
+Method Reference  (::) Operator
+
+1.Function interface is also used to call Lambda Expression
+2.FUnctional interface is also used to call Method Reference
+
+@FunctionInterface
+public interface Demo{
+public void m1();
+}
+
+
+ class Test
+ {
+     main(){
+     public static void m2(){
+    sout("m2 method reference")
+                            }
+ }
+
+ Demo d=(){
+ sout("m1 method")
+ }
+ d.m1();
+
+
+ Demo d=Test::m2;
+
+
+1.java 8 provides a new features is callled Method refernce
+in c++ it is called method resolution operator
+it was used to resolve the ambiguity in c++
+2.the main objective of Lambda expression is to reduce the no of lines in code.
+3.the main objective of method reference is used to no of lines in
+lambda expression body just call method defination it will take care to
+place complete method body into lambda expression
+
+there are 3 types of method referneces(::)
+
+1.reference to static method
+2.reference to instance method
+3.reference to Constructor
+4.reference to arbitrary  type
+
+-----------------++-----------------++-----------------++-----------------
+
