@@ -851,11 +851,67 @@ lambda expression body just call method defination it will take care to
 place complete method body into lambda expression
 
 there are 3 types of method referneces(::)
-
 1.reference to static method
 2.reference to instance method
 3.reference to Constructor
 4.reference to arbitrary  type
 
+ex1-
+@FunctionalInterface
+public interface Demo{              public class DemoImpl{
+                                    public void m1(){                                     sout(" m2() method")
+                                                    }
+public void m1();                    }
+}
+}
+
+//how to call this lambda of this expression
+
+public class TestMain{
+main(){
+//Demo d =()->(sout("hello"))
+//instead of this LE write
+//Method Reference
+DemoImpl demoImpl=new DemoImpl();
+Demo d=demoImpl::m1(); //if it instance method
+Demo d=DemoImpl::m1(); //static method created object explicitly
+
+}
+}
+
+//Special method in Lambda
+
+lambda Expression-
+s->s.length()
+s->s.toUpperCase()
+(i1,i2)->i1.compareTo(i2)
+(s1,s2)->s1.compareTo(s2)
+
+Method reference-
+String :: length()
+String :: toUpperCase()()
+Integer::compareTo
+
+
+syntax ::
+1.static Method
+LE-> (args)->ClassName.staticMethod(args)
+MR-> Classname::staticMethodName();
+
+2.Instance Method
+LE-> (args)->ObjectName.instanceMethodName(args)
+MR-> ObjectName::instanceMethodName();
+
+3.Constructor
+LE-> (args)->new ClassName(args)
+MR-> ClassName::new ();
+
+4. Instance Method Reference of an Arbitrary Object of a Particular Type
+LE -> (obj, args) -> obj.instanceMethod(args) i.e s -> s.length()
+MR -> ClassName::instanceMethod  i.e String::length i.e Employee::getEmployee
 -----------------++-----------------++-----------------++-----------------
 
+note--
+Method reference can be invoked by FUnctional interface here
+functional interface method and method definatation signature(input arguments)
+should be same,else it will give compilation error.
