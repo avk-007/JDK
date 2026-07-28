@@ -121,8 +121,7 @@ isParallel()
         System.out.println(flag1);
 
  ------------------------------------------------------------------------
- STREAM API is a combination of-->
-           Intermediate operations + Terminal Operations
+ STREAM API is combination of->Intermediate operations + Terminal Operations
 | Operation            | Description                                                                     | Example                               |
 |----------------------|---------------------------------------------------------------------------------|---------------------------------------|
 | filter()             | Selects elements based on a condition.                                          | stream.filter(n -> n > 10)            |
@@ -138,7 +137,7 @@ isParallel()
 |----------------------|---------------------------------------------------------------------------------|---------------------------------------|
 
 **Terminal Stream Methods (Java):
--->Terminal opertions will produce final results
+-->Terminal operations will produce final results
  | Operation            | Description                                                          | Example                                     |
  |----------------------|----------------------------------------------------------------------|---------------------------------------------|
  | forEach()            | Performs an action on each element.                                  | stream.forEach(System.out::println)         |
@@ -184,7 +183,7 @@ special note-->
 Collections will support objects not primitive
   Primitives-->Wrapper classes -->Objects -->Collection
 
-  COllection will support homogeneous as well as hetergeneous data.
+  COllection will support homogeneous as well as heterogeneous data.
   no need to mention size in collections
 
   Stream API--Started::
@@ -195,8 +194,119 @@ Collections will support objects not primitive
 
 
 Intermediate Operations
-//| filter()             | Selects elements based on a condition.
+// filter() -- Selects elements based on a condition.
 
 
 ques::
 how to remove null values from Arraylist
+        list.stream().filter((x)->x!=null).forEach(x-> System.out.println(x));
+
+note::
+trick use in this right to left way: first filter then .... so on
+Collection / Array  →  Stream  →  Intermediate Operation(s)  →  Terminal Operation  →  Result
+Intermediate Operations →  filter() → map() → sorted() → distinct() → limit() → skip()
+Terminal Operations →  forEach() → collect() → count() → reduce() → min() → max() → findFirst()
+
+//Lazy intermediate and terminal operation foreach is eager in nature
+//Intermediate operations get evaluated if terminal operations get executed.
+
+
+limit() Intermediate Operations--
+-------
+limit wil take size as input
+limit --return streams which contains 2 elements
+---------------------------------------------------------------
+
+TerminalOps
+forEach() → collect() → count() → reduce() → min() → max() → findFirst()
+
+---------------------------------------------------------------
+
+List-->STream-COllectors.toList->List and viceversa
+
+findFirst(),findany(),anymatch(),allmatch() , noneMatch()
+
+
+   List<Integer> list=new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(3);
+        list.add(4);
+        // count() --Returns the number of elements in the stream. i,e size
+        long count = list.stream().count();
+        System.out.println(count);
+
+        //reduce() -->reduce the data into single element
+        Optional<Integer> reduce = list.stream().distinct().reduce((a, b) -> a + b);
+        System.out.println(reduce.get());
+
+        //for each() -->for each take consumer as input process one by one element and finally displayed to end user
+        list.stream().distinct().forEach(x-> System.out.println(x));
+
+        //toArray is used to convert stream to array
+        Object[] array = list.stream().distinct().toArray();
+        // System.out.println(Arrays.toString(array));
+        //same as sout
+        for (Object a:array){
+            System.out.println(a);
+        }
+
+        //max
+        Optional<Integer> max = list.stream()
+                .max((v1, v2) -> v1.compareTo(v2));
+        System.out.println("max"+":" +max.get());
+
+        //min
+        Optional<Integer> min = list.stream()
+                .min((v1, v2) -> v1.compareTo(v2));
+        System.out.println("max"+":" +min.get());
+
+        //collect
+        //it is used to convert the processed stream into a Collection or another data structure.
+
+        List<Integer> collect = list.stream()
+                .distinct()
+                .collect(Collectors.toList());
+        System.out.println(collect);
+
+        //List-->STream-COllectors.toList->List  and viceversa for collect()
+
+        //findFirst
+        Optional<Integer> first = list.stream().findFirst();
+        System.out.println("find first"+":" +first.get());
+
+        //findany
+        Optional<Integer> findany = list.stream().findAny();
+        System.out.println("findany"+":" +first.get());
+
+        //anymatch(),allmatch(),nonematch()
+        //--will take predicate as an input return true if any element satisfy given conditons else return false
+        List<String> stringlist=new ArrayList<>();
+        stringlist.add("abhis");
+        stringlist.add("hello");
+        stringlist.add("world");
+        //anymatch
+        boolean b = stringlist.stream().anyMatch(x->x.startsWith("he"));
+        System.out.println(b);
+        //all match --every element have to start with a then it will become true.
+        boolean b1 = stringlist.stream().allMatch(x->x.startsWith("a"));
+        System.out.println(b1);
+        //none match--used when no element is matching with your list of strings
+        boolean b2 = stringlist.stream().noneMatch(x->x.startsWith("kartik"));
+        System.out.println(b2);
+
+
+ ---------------------------------------------------------------------------
+MAP::
+suppose we want to store data in form of key,value pair we will go for map
+key should be unique
+value should be duplicate
+
+ex-gmail username-key,password-value
+
+keySet()  -is used to get only key
+values()  -is used to get only values
+entrySet()-to get both key and value
+
+Getting keys only using only using stream Api
